@@ -73,7 +73,7 @@
     },
     {
       "name": "bills-due-soon",
-      "title": "Bills Due Soon",
+      "title": "Bills Due Soon SYNC EDIT",
       "description": "Unpaid bills due within the next N days.",
       "area": "Payables",
       "access": "read-only",

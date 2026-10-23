@@ -2,7 +2,7 @@
 name: bills-due-soon
 description: Unpaid bills due within the next N days.
 metadata:
-  title: Bills Due Soon
+  title: Bills Due Soon SYNC EDIT
   area: Payables
   access: read-only
   surface: MCP
@@ -11,7 +11,7 @@ metadata:
   example_prompt: Which bills are due in the next 10 days?
 ---
 
-# Bills Due Soon
+# Bills Due Soon SYNC EDIT
 
 ## When to use
 
