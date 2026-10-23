@@ -142,6 +142,29 @@
       ]
     },
     {
+      "name": "duplicate",
+      "title": "Duplicate",
+      "description": "List invoices pending approval.",
+      "area": "Receivables",
+      "access": "read-only",
+      "surface": [
+        "MCP"
+      ],
+      "requires": [],
+      "tools": [
+        "search_records"
+      ],
+      "example_prompt": "Which invoices are pending approval?",
+      "when": [
+        "Seeing how many invoices are waiting for approval",
+        "Getting links to each invoice that needs a decision"
+      ],
+      "steps": [
+        "Return all invoices pending approval.",
+        "Show count, plus invoice number with link for each."
+      ]
+    },
+    {
       "name": "implementation-invoice-dates",
       "title": "Implementation Invoice Dates",
       "description": "Upcoming invoices for the implementation module.",
