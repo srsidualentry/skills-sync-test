@@ -1,0 +1,237 @@
+{
+  "skills": [
+    {
+      "name": "ar-latest-overdue-invoice",
+      "title": "Latest Overdue Invoice",
+      "description": "Find the most recent posted, unpaid overdue invoice.",
+      "area": "Receivables",
+      "access": "read-only",
+      "surface": [
+        "MCP"
+      ],
+      "requires": [],
+      "tools": [
+        "search_records",
+        "get_record_detail"
+      ],
+      "example_prompt": "What is the latest overdue invoice?",
+      "when": [
+        "Finding the single most recent posted, unpaid overdue invoice",
+        "Checking one overdue invoice quickly without a full report"
+      ],
+      "steps": [
+        "Return the most recent posted, unpaid overdue invoice that is not excluded.",
+        "Show invoice ID, customer, due date, days overdue, outstanding balance, status."
+      ]
+    },
+    {
+      "name": "ar-overdue-invoices",
+      "title": "AR Overdue Invoices",
+      "description": "List posted, unpaid, overdue invoices.",
+      "area": "Receivables",
+      "access": "read-only",
+      "surface": [
+        "MCP"
+      ],
+      "requires": [],
+      "tools": [
+        "search_records"
+      ],
+      "example_prompt": "Show my top 10 overdue invoices from last month.",
+      "when": [
+        "Reviewing the largest posted, unpaid invoices that are past due",
+        "Preparing collections follow-up for a month or a days-overdue threshold"
+      ],
+      "steps": [
+        "Filter posted, unpaid invoices by the range.",
+        "Sort by amount descending and take the top N.",
+        "Show invoice number with link, amount and currency, due date, days past due, and the total."
+      ]
+    },
+    {
+      "name": "ar-pending-approval",
+      "title": "Invoices Pending Approval",
+      "description": "List invoices pending approval.",
+      "area": "Receivables",
+      "access": "read-only",
+      "surface": [
+        "MCP"
+      ],
+      "requires": [],
+      "tools": [
+        "search_records"
+      ],
+      "example_prompt": "Which invoices are pending approval?",
+      "when": [
+        "Seeing how many invoices are waiting for approval",
+        "Getting links to each invoice that needs a decision"
+      ],
+      "steps": [
+        "Return all invoices pending approval.",
+        "Show count, plus invoice number with link for each."
+      ]
+    },
+    {
+      "name": "bills-due-soon",
+      "title": "Bills Due Soon",
+      "description": "Unpaid bills due within the next N days.",
+      "area": "Payables",
+      "access": "read-only",
+      "surface": [
+        "MCP"
+      ],
+      "requires": [],
+      "tools": [
+        "search_records"
+      ],
+      "example_prompt": "Which bills are due in the next 10 days?",
+      "when": [
+        "Planning cash outflow for the next few days",
+        "Finding bills with an early-payment discount about to expire"
+      ],
+      "steps": [
+        "List unpaid bills due in the window.",
+        "Include vendor, amount, due date, early-payment discount available.",
+        "Sum total cash outflow."
+      ]
+    },
+    {
+      "name": "contracts-upcoming-start",
+      "title": "Contracts Upcoming Start",
+      "description": "List contracts starting in the next N days.",
+      "area": "Revenue",
+      "access": "read-only",
+      "surface": [
+        "MCP"
+      ],
+      "requires": [],
+      "tools": [
+        "search_records",
+        "get_contract_detail"
+      ],
+      "example_prompt": "Which contracts start in the next 90 days?",
+      "when": [
+        "Listing contracts about to start, by recognition start or first invoice date",
+        "Spotting contracts where the first invoice comes before recognition starts"
+      ],
+      "steps": [
+        "Find contracts with a performance obligation where either date falls in the window.",
+        "Show customer, contract ID, obligation, modules, value, first invoice date, recognition start.",
+        "Sort by first invoice date. Flag when first invoice precedes recognition start."
+      ]
+    },
+    {
+      "name": "deferred-revenue-by-entity",
+      "title": "Deferred Revenue by Entity",
+      "description": "Deferred revenue at a date by entity, consolidated.",
+      "area": "Revenue",
+      "access": "read-only",
+      "surface": [
+        "MCP"
+      ],
+      "requires": [],
+      "tools": [],
+      "example_prompt": "What is deferred revenue by entity at month end?",
+      "when": [
+        "Reporting deferred revenue at a date, split by entity",
+        "Consolidating deferred revenue into the parent reporting currency"
+      ],
+      "steps": [
+        "By entity, split implementation from subscription.",
+        "Consolidate into the target currency."
+      ]
+    },
+    {
+      "name": "implementation-invoice-dates",
+      "title": "Implementation Invoice Dates",
+      "description": "Upcoming invoices for the implementation module.",
+      "area": "Revenue",
+      "access": "read-only",
+      "surface": [
+        "MCP"
+      ],
+      "requires": [],
+      "tools": [
+        "search_records"
+      ],
+      "example_prompt": "When are the next implementation invoices going out?",
+      "when": [
+        "Finding upcoming invoices that include the Implementation module",
+        "Getting the dates those invoices will go out"
+      ],
+      "steps": [
+        "List invoices to be sent with that module in the window, with their dates.",
+        "Return the dates."
+      ]
+    },
+    {
+      "name": "intercompany-gl-report",
+      "title": "Intercompany GL Report",
+      "description": "Excel report of posted intercompany GL activity.",
+      "area": "Close",
+      "access": "read-only",
+      "surface": [
+        "MCP"
+      ],
+      "requires": [],
+      "tools": [],
+      "example_prompt": "Give me the intercompany general ledger report for the last 30 days.",
+      "when": [
+        "Producing an Excel report of posted intercompany ledger activity",
+        "Supporting intercompany review during close"
+      ],
+      "steps": [
+        "Pull posted intercompany activity from ledger data (not Report Center).",
+        "Columns: posting date, JE number, account, memo, debit, credit, source company, counterparty company, currency.",
+        "File name: Intercompany General Ledger Report."
+      ]
+    },
+    {
+      "name": "latest-posted-bill",
+      "title": "Latest Posted Bill",
+      "description": "Find the most recent posted bill, optionally for a vendor or entity.",
+      "area": "Payables",
+      "access": "read-only",
+      "surface": [
+        "MCP"
+      ],
+      "requires": [],
+      "tools": [
+        "search_records",
+        "get_record_detail"
+      ],
+      "example_prompt": "What is the latest posted bill?",
+      "when": [
+        "Finding the most recent posted bill, for any vendor or one you name",
+        "Looking up a bill by vendor or entity without giving a date"
+      ],
+      "steps": [
+        "Return the latest posted bill: number, vendor, date, currency, company, expense account, total."
+      ]
+    },
+    {
+      "name": "unpaid-bills-list",
+      "title": "Unpaid Bills List",
+      "description": "List unpaid bills as of a date, largest first.",
+      "area": "Payables",
+      "access": "read-only",
+      "surface": [
+        "MCP"
+      ],
+      "requires": [],
+      "tools": [
+        "search_records",
+        "get_record_detail"
+      ],
+      "example_prompt": "List my unpaid bills, largest first.",
+      "when": [
+        "Seeing which vendor bills are still unpaid as of a date",
+        "Ranking open payables by amount"
+      ],
+      "steps": [
+        "Return all unpaid bills as of the date: vendor, bill number, amount, currency, due date.",
+        "Sort by amount descending."
+      ]
+    }
+  ]
+}
