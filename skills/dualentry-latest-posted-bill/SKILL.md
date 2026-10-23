@@ -1,5 +1,5 @@
 ---
-name: latest-posted-bill
+name: dualentry-latest-posted-bill
 description: Find the most recent posted bill, optionally for a vendor or entity.
 metadata:
   title: Latest Posted Bill

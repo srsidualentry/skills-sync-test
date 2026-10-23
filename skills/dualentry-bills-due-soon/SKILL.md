@@ -1,5 +1,5 @@
 ---
-name: bills-due-soon
+name: dualentry-bills-due-soon
 description: Unpaid bills due within the next N days.
 metadata:
   title: Bills Due Soon SYNC EDIT

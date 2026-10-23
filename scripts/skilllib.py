@@ -68,3 +68,23 @@ def build_catalog_text():
     import json
     skills = [load_skill(p) for p in all_skill_files()]
     return json.dumps({"skills": skills}, indent=2, ensure_ascii=False) + "\n"
+
+
+README = ROOT / "README.md"
+CATALOG_START = "<!-- catalog:start -->"
+CATALOG_END = "<!-- catalog:end -->"
+
+
+def render_catalog_table():
+    skills = [load_skill(p) for p in all_skill_files()]
+    rows = ["| Skill | Area | What it does |", "|---|---|---|"]
+    for s in sorted(skills, key=lambda x: (x["area"], x["name"])):
+        rows.append(f"| [`{s['name']}`](skills/{s['name']}/SKILL.md) | {s['area']} | {s['description']} |")
+    return "\n".join(rows)
+
+
+def readme_with_catalog():
+    text = README.read_text()
+    a = text.index(CATALOG_START) + len(CATALOG_START)
+    b = text.index(CATALOG_END)
+    return text[:a] + "\n\n" + render_catalog_table() + "\n\n" + text[b:]

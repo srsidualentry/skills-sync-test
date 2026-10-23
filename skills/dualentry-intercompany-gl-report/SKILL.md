@@ -1,5 +1,5 @@
 ---
-name: intercompany-gl-report
+name: dualentry-intercompany-gl-report
 description: Excel report of posted intercompany GL activity.
 metadata:
   title: Intercompany GL Report

@@ -1,5 +1,5 @@
 ---
-name: unpaid-bills-list
+name: dualentry-unpaid-bills-list
 description: List unpaid bills as of a date, largest first.
 metadata:
   title: Unpaid Bills List

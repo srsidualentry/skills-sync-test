@@ -3,7 +3,15 @@
 import re
 import sys
 
-from skilllib import CATALOG, all_skill_files, build_catalog_text, parse_frontmatter, section
+from skilllib import (
+    CATALOG,
+    README,
+    all_skill_files,
+    build_catalog_text,
+    parse_frontmatter,
+    readme_with_catalog,
+    section,
+)
 
 REAL_TOOLS = {
     "search_records", "get_record_detail", "get_record_by_number", "get_record_history",
@@ -31,6 +39,8 @@ for path in all_skill_files():
         continue
     if top.get("name") != folder:
         err(folder, f"folder name differs from frontmatter name '{top.get('name')}'")
+    if not folder.startswith("dualentry-"):
+        err(folder, "name must start with dualentry-")
     for k in REQUIRED_TOP:
         if not top.get(k):
             err(folder, f"missing field {k}")
@@ -55,6 +65,9 @@ for path in all_skill_files():
 
 if not CATALOG.exists() or CATALOG.read_text() != build_catalog_text():
     errors.append("catalog.json is stale: run scripts/build_catalog.py")
+
+if README.read_text() != readme_with_catalog():
+    errors.append("README.md catalog table is stale: run scripts/build_catalog.py")
 
 if errors:
     print("\n".join(errors))

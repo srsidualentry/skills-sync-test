@@ -1,5 +1,5 @@
 ---
-name: ar-latest-overdue-invoice
+name: dualentry-ar-latest-overdue-invoice
 description: Find the most recent posted, unpaid overdue invoice.
 metadata:
   title: Latest Overdue Invoice

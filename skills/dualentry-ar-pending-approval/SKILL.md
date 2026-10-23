@@ -1,5 +1,5 @@
 ---
-name: ar-pending-approval
+name: dualentry-ar-pending-approval
 description: List invoices pending approval.
 metadata:
   title: Invoices Pending Approval

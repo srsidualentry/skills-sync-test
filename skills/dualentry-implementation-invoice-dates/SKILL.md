@@ -1,5 +1,5 @@
 ---
-name: implementation-invoice-dates
+name: dualentry-implementation-invoice-dates
 description: Upcoming invoices for the implementation module.
 metadata:
   title: Implementation Invoice Dates

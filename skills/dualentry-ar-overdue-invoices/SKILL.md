@@ -1,5 +1,5 @@
 ---
-name: ar-overdue-invoices
+name: dualentry-ar-overdue-invoices
 description: List posted, unpaid, overdue invoices.
 metadata:
   title: AR Overdue Invoices

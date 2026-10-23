@@ -1,5 +1,5 @@
 ---
-name: deferred-revenue-by-entity
+name: dualentry-deferred-revenue-by-entity
 description: Deferred revenue at a date by entity, consolidated.
 metadata:
   title: Deferred Revenue by Entity

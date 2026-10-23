@@ -1,5 +1,5 @@
 ---
-name: contracts-upcoming-start
+name: dualentry-contracts-upcoming-start
 description: List contracts starting in the next N days.
 metadata:
   title: Contracts Upcoming Start
